@@ -3921,6 +3921,8 @@ GameObject:
   - component: {fileID: 1165722111}
   - component: {fileID: 1165722110}
   - component: {fileID: 1165722109}
+  - component: {fileID: 1165722113}
+  - component: {fileID: 1165722112}
   m_Layer: 0
   m_Name: NetworkManager
   m_TagString: Untagged
@@ -4009,6 +4011,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1165722112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165722108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b39a2d2a1a296142bbc02c1cbef4a38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Discovery: {fileID: 1165722113}
+  DrawOffset: {x: 10, y: 210}
+--- !u!114 &1165722113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165722108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c8411a86f2682148bca73660ff76efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Port: 47777
+  m_UniqueApplicationId: -791113494851022653
+  m_StartWithServer: 1
+  ServerName: EnterName
+  OnServerFound:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1185018760
 GameObject:
   m_ObjectHideFlags: 0
@@ -4855,7 +4890,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1356615903
 MonoBehaviour:
   m_ObjectHideFlags: 0
