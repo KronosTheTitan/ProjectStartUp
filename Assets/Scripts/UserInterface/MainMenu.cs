@@ -1,6 +1,5 @@
 using System.Collections;
 using Managers;
-using Unity.Netcode;
 using UnityEngine;
 
 namespace UserInterface
@@ -40,12 +39,12 @@ namespace UserInterface
 
         public void StartAsHost()
         {
-            NetworkManager.Singleton.StartHost();
+            
         }
 
         public void JoinAsClient()
         {
-            NetworkManager.Singleton.StartClient();
+            
         }
     }
 }
