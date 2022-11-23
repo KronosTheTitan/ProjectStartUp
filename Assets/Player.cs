@@ -8,8 +8,8 @@ public class Player : NetworkBehaviour
     [SerializeField] private Rigidbody rigidbody;
     
 
-    [SerializeField] private float speed = 3;
-    [SerializeField] private float maxSpeed = 9;
+    [SerializeField] private float speed = 1;
+    [SerializeField] private float maxSpeed = 3;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,8 +31,9 @@ public class Player : NetworkBehaviour
     [ServerCallback]
     void MovePlayer(Vector3 dir)
     {
-        if (!Physics.Raycast(transform.position,Vector3.down,.75f))
+        if (Physics.Raycast(transform.position,Vector3.down,.75f))
         {
+            Debug.Log("Could not find floor");
             if (distanceSinceFloor > .05f)
             {
                 rigidbody.velocity = new Vector3(0,rigidbody.velocity.y,0);
@@ -40,10 +41,11 @@ public class Player : NetworkBehaviour
             }
             else
             {
-                distanceSinceFloor += (rigidbody.velocity * Time.deltaTime).magnitude;
+                distanceSinceFloor += (rigidbody.velocity * Time.deltaTime).magnitude * Time.deltaTime;
                 Debug.Log(distanceSinceFloor);
             }
         };
+        Debug.Log("resetting distance since floor");
 
         distanceSinceFloor = 0;
         
