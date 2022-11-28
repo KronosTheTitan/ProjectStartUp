@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
         Vector2 rotation = _gamepad.rightStick.position;
         MovePlayer(direction.normalized, rotation.normalized);
 
-        if (_gamepad.rightTrigger.justPressed || Input.GetKeyDown(KeyCode.Space))
+        if (_gamepad.rightTrigger.pressed || Input.GetKeyDown(KeyCode.Space))
         {
             Shoot();
         }
@@ -39,10 +39,12 @@ public class Player : MonoBehaviour
     }
 
     private float lastShot = -1;
+    [SerializeField] private float rateOfFire = .1f;
 
     protected virtual void Shoot()
     {
-        if( lastShot + 1 > Time.time) return;
+        if( lastShot + rateOfFire > Time.time) return;
+        lastShot = Time.time;
         Bullet bullet = Instantiate(bulletPrefab,bulletSpawn.position,bulletSpawn.rotation).GetComponent(typeof(Bullet)) as Bullet;
     }
 
@@ -59,11 +61,10 @@ public class Player : MonoBehaviour
         health = health - damage;
         onTakeDamage.Invoke(health);
 
-        /*if (_gamepad != null)
+        if (_gamepad != null)
         {
-            _gamepad.VibrateAdvanced(1,1);
-            Invoke("StopVibration", .5f);
-        }*/
+            _gamepad.Vibrate(10,10,.75f);
+        }
         
         if (health <= 0)
         {
@@ -71,10 +72,6 @@ public class Player : MonoBehaviour
             onDeath.Invoke();
             gameObject.SetActive(false);
         }
-    }
-    private void StopVibration()
-    {
-        _gamepad.StopVibration();
     }
 
     private Gamepad _gamepad;

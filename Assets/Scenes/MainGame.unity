@@ -285,8 +285,9 @@ MonoBehaviour:
   rigidbody: {fileID: 159040546}
   speed: 5
   maxSpeed: 5
-  bulletPrefab: {fileID: 2033590303450961762, guid: 96975454c939dba4aa231c76b1c2ce98, type: 3}
+  bulletPrefab: {fileID: 2033590303450961762, guid: ff4411506a8d9294d8f078d9f7f531ba, type: 3}
   bulletSpawn: {fileID: 387939158}
+  rateOfFire: 0.75
   onTakeDamage:
     m_PersistentCalls:
       m_Calls:
@@ -358,8 +359,9 @@ MonoBehaviour:
   rigidbody: {fileID: 185325371}
   speed: 5
   maxSpeed: 5
-  bulletPrefab: {fileID: 2033590303450961762, guid: 96975454c939dba4aa231c76b1c2ce98, type: 3}
+  bulletPrefab: {fileID: 2033590303450961762, guid: 355f2b7283e27d141958438452edfed9, type: 3}
   bulletSpawn: {fileID: 343790351}
+  rateOfFire: 0.75
   onTakeDamage:
     m_PersistentCalls:
       m_Calls:
@@ -1395,6 +1397,8 @@ MonoBehaviour:
   players:
   - {fileID: 185325368}
   - {fileID: 1701920279}
+  - {fileID: 159040547}
+  - {fileID: 1174893606}
 --- !u!4 &810201408
 Transform:
   m_ObjectHideFlags: 0
@@ -1931,8 +1935,9 @@ MonoBehaviour:
   rigidbody: {fileID: 1174893605}
   speed: 5
   maxSpeed: 5
-  bulletPrefab: {fileID: 2033590303450961762, guid: 96975454c939dba4aa231c76b1c2ce98, type: 3}
+  bulletPrefab: {fileID: 2033590303450961762, guid: 542ef9ce0db2e794183f318113433acd, type: 3}
   bulletSpawn: {fileID: 1650970853}
+  rateOfFire: 0.75
   onTakeDamage:
     m_PersistentCalls:
       m_Calls:
@@ -3157,6 +3162,7 @@ MonoBehaviour:
   maxSpeed: 5
   bulletPrefab: {fileID: 2033590303450961762, guid: 96975454c939dba4aa231c76b1c2ce98, type: 3}
   bulletSpawn: {fileID: 1950612352}
+  rateOfFire: 0.75
   onTakeDamage:
     m_PersistentCalls:
       m_Calls:
