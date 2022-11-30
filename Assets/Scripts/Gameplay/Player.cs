@@ -45,7 +45,7 @@ public class Player : MonoBehaviour
             Vector2 direction = _gamepad.leftStick.position;
             Vector2 rotation = _gamepad.rightStick.position;
             MovePlayer(direction.normalized, rotation.normalized);
-
+            
             if (_gamepad.rightTrigger.pressed || Input.GetKeyDown(KeyCode.Space))
             {
                 Shoot();
@@ -117,13 +117,15 @@ public class Player : MonoBehaviour
         health = health - damage;
         onTakeDamage.Invoke();
 
-        StartCoroutine(Knockback(direction));
-        
         if (health <= 0)
         {
             Debug.Log(health);
             onDeath.Invoke();
             gameObject.SetActive(false);
+        }
+        else
+        {
+            StartCoroutine(Knockback(direction));
         }
     }
 }
