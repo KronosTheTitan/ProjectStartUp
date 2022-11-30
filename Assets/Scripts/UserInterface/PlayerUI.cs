@@ -8,7 +8,12 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private Player player;
     [SerializeField] private Slider healthBar;
     
-    public void UpdateHealth(int health)
+    /// <summary>
+    /// This function updates the players health bar.
+    /// It should be called as part of an event when the player
+    /// takes damage.
+    /// </summary>
+    public void UpdateHealth()
     {
         healthBar.value = player.health;
     }
