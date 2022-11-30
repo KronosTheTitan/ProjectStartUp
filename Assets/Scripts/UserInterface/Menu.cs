@@ -2,13 +2,8 @@ using UnityEngine;
 
 namespace UserInterface
 {
-    public class Menu : MonoBehaviour
+    public interface Menu
     {
-        [SerializeField] protected Animator _animator;
-
-        public virtual void OpenMenu()
-        {
-            
-        }
+        public void OpenMenu();
     }
 }

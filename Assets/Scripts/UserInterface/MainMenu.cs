@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using Managers;
 using UnityEngine;
@@ -9,12 +10,46 @@ namespace UserInterface
     /// It contains functions for handling all the buttons
     /// on the main menu.
     /// </summary>
-    public class MainMenu : Menu
+    public class MainMenu : MonoBehaviour, Menu
     {
-        public override void OpenMenu()
+        [SerializeField] private enum MenuOptions
+        {
+            START,
+            QUIT
+        }
+
+        [SerializeField] private MenuOptions[] options;
+        
+        [SerializeField] private int currentPosition = 0;
+        public void Update()
+        {
+            if (Hinput.anyGamepad.dPad.up.justPressed)
+            {
+                currentPosition--;
+                currentPosition = Mathf.Clamp(currentPosition, 0, options.Length - 1);
+            }
+            if (Hinput.anyGamepad.dPad.down.justPressed)
+            {
+                currentPosition++;
+                currentPosition = Mathf.Clamp(currentPosition, 0, options.Length - 1);
+
+            }
+            if (Hinput.anyGamepad.A.justPressed)
+            {
+                switch (options[currentPosition])
+                {
+                    case MenuOptions.START:
+                        StartNewGame();
+                        break;
+                    case MenuOptions.QUIT:
+                        break;
+                }
+            }
+        }
+
+        public void OpenMenu()
         {
             gameObject.SetActive(true);
-            //_animator.SetTrigger("");
         }
 
         [SerializeField] private string game;
@@ -35,16 +70,6 @@ namespace UserInterface
         public void QuitToDesktop()
         {
             Application.Quit();
-        }
-
-        public void StartAsHost()
-        {
-            
-        }
-
-        public void JoinAsClient()
-        {
-            
         }
     }
 }
