@@ -216,6 +216,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   health: 100
+  score: 0
+  lastScore: -1
+  scoreInterval: 1
   rigidbody: {fileID: 8968525788250047713}
   speed: 5
   maxSpeed: 5
@@ -226,6 +229,9 @@ MonoBehaviour:
   bulletSpawn: {fileID: 8968525788540633301}
   vibrationStrength: 10
   vibrationDuration: 0.5
+  onScoreIncrease:
+    m_PersistentCalls:
+      m_Calls: []
   onTakeDamage:
     m_PersistentCalls:
       m_Calls:

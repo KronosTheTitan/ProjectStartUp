@@ -11,6 +11,11 @@ public class Player : MonoBehaviour
     [Header("Health")]
     [SerializeField] private int maxHealth = 100;
     [SerializeField] public int health = 100;
+
+    [Header("Score")]
+    public int score;
+    [SerializeField] private float lastScore;
+    [SerializeField] private float scoreInterval;
     
     [Header("Movement")]
     [SerializeField] private new Rigidbody rigidbody;
@@ -34,6 +39,7 @@ public class Player : MonoBehaviour
     private Gamepad _gamepad;
 
     [Header("Events")]
+    public UnityEvent onScoreIncrease;
     public UnityEvent onTakeDamage;
     public UnityEvent onDeath;
     
@@ -51,6 +57,14 @@ public class Player : MonoBehaviour
                 Shoot();
             }
         }
+    }
+
+    public void ReceiveScore(int amount)
+    {
+        if(Time.time < lastScore + scoreInterval) return;
+        lastScore = Time.time;
+        score += amount;
+        onScoreIncrease.Invoke();
     }
 
     /// <summary>
@@ -114,7 +128,7 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(int damage , Vector2 direction)
     {
-        health = health - damage;
+        health -= damage;
         onTakeDamage.Invoke();
 
         if (health <= 0)
