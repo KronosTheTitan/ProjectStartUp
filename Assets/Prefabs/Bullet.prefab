@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 3624350602079915356}
-  bounceCount: 1
+  bounceCount: 2
   speed: 7.5
 --- !u!33 &1859580785848181308
 MeshFilter:
@@ -173,7 +173,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 1
+  m_Time: 0.45
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.3

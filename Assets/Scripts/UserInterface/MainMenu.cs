@@ -1,5 +1,4 @@
-using System;
-using System.Collections;
+using UnityEngine.UI;
 using Managers;
 using UnityEngine;
 
@@ -19,21 +18,38 @@ namespace UserInterface
         }
 
         [SerializeField] private MenuOptions[] options;
+        [SerializeField] private Image[] buttons;
+
+        [SerializeField] private Color selectedColor;
+        [SerializeField] private Color unSelectedColor;
         
         [SerializeField] private int currentPosition = 0;
         public void Update()
         {
-            if (Hinput.anyGamepad.dPad.up.justPressed)
+            if (Hinput.anyGamepad.dPad.up.justPressed || Hinput.anyGamepad.leftStick.up.justPressed)
             {
                 currentPosition--;
                 currentPosition = Mathf.Clamp(currentPosition, 0, options.Length - 1);
             }
-            if (Hinput.anyGamepad.dPad.down.justPressed)
+            if (Hinput.anyGamepad.dPad.down.justPressed || Hinput.anyGamepad.leftStick.down.justPressed)
             {
                 currentPosition++;
                 currentPosition = Mathf.Clamp(currentPosition, 0, options.Length - 1);
 
             }
+
+            for (int i = 0; i < buttons.Length; i++)
+            {
+                if (i == currentPosition)
+                {
+                    buttons[i].color = selectedColor;
+                }
+                else
+                {
+                    buttons[i].color = unSelectedColor;
+                }
+            }
+            
             if (Hinput.anyGamepad.A.justPressed)
             {
                 switch (options[currentPosition])
