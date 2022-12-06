@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using HinputClasses;
 using UnityEngine;
 using UnityEngine.Events;
@@ -26,6 +24,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float maxSpeed = 5;
     [SerializeField] private float knockbackStrength = 1.5f;
     [SerializeField] private float knockbackDuration = .5f;
+    [SerializeField] private Animator animator;
 
     private bool _inKnockback = false;
     
@@ -110,6 +109,8 @@ public class Player : MonoBehaviour
     {
         direction *= speed;
         rigidbody.velocity = Vector3.ClampMagnitude(new Vector3(direction.x, 0, direction.y), maxSpeed);
+        animator.SetFloat("Speed",rigidbody.velocity.magnitude);
+        
         if(rotation.magnitude <= 0.95f) return;
         transform.LookAt(transform.position + new Vector3(rotation.x,0,rotation.y));
     }
@@ -158,6 +159,8 @@ public class Player : MonoBehaviour
         transform.position = respawnPoint.position;
         transform.rotation = respawnPoint.rotation;
         onTakeDamage.Invoke();
+
+        _inKnockback = false;
         
         gameObject.SetActive(true);
     }
