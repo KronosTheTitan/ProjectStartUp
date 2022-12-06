@@ -11,11 +11,14 @@ public class Player : MonoBehaviour
     [Header("Health")]
     [SerializeField] private int maxHealth = 100;
     [SerializeField] public int health = 100;
+    [SerializeField] private float respawnDelay = 1;
+    [SerializeField] private Transform respawnPoint;
 
     [Header("Score")]
     public int score;
     [SerializeField] private float lastScore;
     [SerializeField] private float scoreInterval;
+    [SerializeField] private int amountNeededForVictory = 100;
     
     [Header("Movement")]
     [SerializeField] private new Rigidbody rigidbody;
@@ -65,6 +68,11 @@ public class Player : MonoBehaviour
         lastScore = Time.time;
         score += amount;
         onScoreIncrease.Invoke();
+
+        if (score >= amountNeededForVictory)
+        {
+            PlayerManager.instance.HandleVictory(this);
+        }
     }
 
     /// <summary>
@@ -136,10 +144,21 @@ public class Player : MonoBehaviour
             Debug.Log(health);
             onDeath.Invoke();
             gameObject.SetActive(false);
+            Invoke("Respawn",respawnDelay);
         }
         else
         {
             StartCoroutine(Knockback(direction));
         }
+    }
+
+    public void Respawn()
+    {
+        health = maxHealth;
+        transform.position = respawnPoint.position;
+        transform.rotation = respawnPoint.rotation;
+        onTakeDamage.Invoke();
+        
+        gameObject.SetActive(true);
     }
 }
