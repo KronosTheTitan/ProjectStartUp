@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 5432639870887939238}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -152,7 +152,7 @@ TrailRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 3ab46198d1bd638409a19cdc8f5434fb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -173,30 +173,30 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.45
+  m_Time: 0.3
   m_Parameters:
     serializedVersion: 3
-    widthMultiplier: 0.3
+    widthMultiplier: 0.4
     widthCurve:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 0
         value: 1
-        inSlope: -0.002694916
-        outSlope: -0.002694916
+        inSlope: -0.056562826
+        outSlope: -0.056562826
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.6509716
+        inWeight: 0
+        outWeight: 0.43423018
       - serializedVersion: 3
         time: 1
         value: 0
-        inSlope: -3.1528387
-        outSlope: -3.1528387
+        inSlope: -1.6719474
+        outSlope: -1.6719474
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.07623315
+        inWeight: 0.15844542
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
