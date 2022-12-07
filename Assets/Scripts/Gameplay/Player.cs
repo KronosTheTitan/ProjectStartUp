@@ -122,6 +122,7 @@ public class Player : MonoBehaviour
     protected virtual void Shoot()
     {
         if( _lastShot + rateOfFire > Time.time) return;
+        
         _lastShot = Time.time;
         Instantiate(bulletPrefab,bulletSpawn.position,bulletSpawn.rotation);
     }

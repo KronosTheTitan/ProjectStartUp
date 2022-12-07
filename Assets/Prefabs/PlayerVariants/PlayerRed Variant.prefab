@@ -10,7 +10,11 @@ PrefabInstance:
     - target: {fileID: 835823359311635705, guid: 512d33c82ac1d2342afdfbbdb71eb2c6, type: 3}
       propertyPath: bulletSpawn
       value: 
-      objectReference: {fileID: 3425375562173681294, guid: 86999f3e3ccb8e54b854c8d4b455e3dc, type: 3}
+      objectReference: {fileID: 8310874372237983863}
+    - target: {fileID: 835823359311635705, guid: 512d33c82ac1d2342afdfbbdb71eb2c6, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 7321112083204209346, guid: 86999f3e3ccb8e54b854c8d4b455e3dc, type: 3}
     - target: {fileID: 8968525787430568717, guid: 512d33c82ac1d2342afdfbbdb71eb2c6, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -129,3 +133,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 512d33c82ac1d2342afdfbbdb71eb2c6, type: 3}
+--- !u!4 &8310874372237983863 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8968525788540633301, guid: 512d33c82ac1d2342afdfbbdb71eb2c6, type: 3}
+  m_PrefabInstance: {fileID: 1090067486780522658}
+  m_PrefabAsset: {fileID: 0}
