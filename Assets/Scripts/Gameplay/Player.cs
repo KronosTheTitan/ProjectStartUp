@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float rateOfFire = .1f;
     [SerializeField] private Bullet bulletPrefab;
     [SerializeField] private Transform bulletSpawn;
+    [SerializeField] private AudioSource shotEffect;
     
     private float _lastShot = -1;
 
@@ -124,6 +125,7 @@ public class Player : MonoBehaviour
         if( _lastShot + rateOfFire > Time.time) return;
         
         _lastShot = Time.time;
+        shotEffect.Play();
         Instantiate(bulletPrefab,bulletSpawn.position,bulletSpawn.rotation);
     }
 
