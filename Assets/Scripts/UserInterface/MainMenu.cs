@@ -58,6 +58,7 @@ namespace UserInterface
                         StartNewGame();
                         break;
                     case MenuOptions.QUIT:
+                        Application.Quit();
                         break;
                 }
             }

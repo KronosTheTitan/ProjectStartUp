@@ -8,6 +8,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 835823359311635705, guid: 512d33c82ac1d2342afdfbbdb71eb2c6, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 835823359311635705, guid: 512d33c82ac1d2342afdfbbdb71eb2c6, type: 3}
       propertyPath: bulletPrefab
       value: 
       objectReference: {fileID: 2318564363951235491, guid: a8cbea2ad2deea9409bc09004e914160, type: 3}
@@ -71,5 +75,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerBlue Variant
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6763657084564842003, guid: 512d33c82ac1d2342afdfbbdb71eb2c6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 512d33c82ac1d2342afdfbbdb71eb2c6, type: 3}
